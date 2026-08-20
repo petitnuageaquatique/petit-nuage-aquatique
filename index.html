@@ -20,11 +20,12 @@
   :root{
     --cream:#F8F3EC;
     --white:#FFFFFF;
-    --aqua-pale:#EAF4F5;
-    --aqua:#8FBFCC;
-    --aqua-deep:#3F7E8C;
-    --aqua-ink:#2B4A52;
-    --blush:#E3AFA3;
+    --mist:#ECE5DB;
+    --beige:#CBB29C;
+    --taupe:#8A6B52;
+    --taupe-deep:#6B5540;
+    --ink-deep:#4A3F35;
+    --blush:#C9917E;
     --gold:#CE9E4E;
     --ink:#3E3733;
     --ink-soft:#736A62;
@@ -66,11 +67,11 @@
     letter-spacing:.14em;
     text-transform:uppercase;
     font-size:.72rem;
-    color:var(--aqua-deep);
+    color:var(--taupe);
   }
 
   :focus-visible{
-    outline:3px solid var(--aqua-deep);
+    outline:3px solid var(--taupe);
     outline-offset:3px;
     border-radius:6px;
   }
@@ -118,7 +119,7 @@
     font-weight:500;
   }
   .nav-cta{
-    background:var(--aqua-deep);
+    background:var(--taupe);
     color:var(--white);
     text-decoration:none;
     padding:10px 20px;
@@ -130,7 +131,7 @@
     transition:transform .2s ease, background .2s ease;
     white-space:nowrap;
   }
-  .nav-cta:hover{background:var(--aqua-ink); transform:translateY(-1px);}
+  .nav-cta:hover{background:var(--taupe-deep); transform:translateY(-1px);}
 
   /* ---------- HERO ---------- */
   .hero{
@@ -160,7 +161,7 @@
   }
   .hero h1 em{
     font-style:italic;
-    color:var(--aqua-deep);
+    color:var(--taupe);
   }
   .hero p.lead{
     font-size:1.08rem;
@@ -174,7 +175,7 @@
     flex-wrap:wrap;
   }
   .btn-primary{
-    background:var(--aqua-deep);
+    background:var(--taupe);
     color:var(--white);
     text-decoration:none;
     padding:14px 28px;
@@ -187,7 +188,7 @@
     border:none;
     cursor:pointer;
   }
-  .btn-primary:hover{background:var(--aqua-ink); transform:translateY(-2px);}
+  .btn-primary:hover{background:var(--taupe-deep); transform:translateY(-2px);}
   .btn-ghost{
     background:transparent;
     color:var(--ink);
@@ -200,7 +201,7 @@
     font-size:.95rem;
     transition:border-color .2s ease, background .2s ease;
   }
-  .btn-ghost:hover{border-color:var(--aqua-deep); background:rgba(143,191,204,.15);}
+  .btn-ghost:hover{border-color:var(--taupe); background:rgba(138,107,82,.12);}
 
   .hero-art{
     position:relative;
@@ -236,7 +237,7 @@
     align-items:center;
   }
   .concept-visual{
-    background:var(--aqua-pale);
+    background:var(--mist);
     border-radius:var(--radius-lg);
     padding:32px;
     text-align:center;
@@ -245,7 +246,7 @@
     font-family:'Fraunces', serif;
     font-style:italic;
     font-size:1.5rem;
-    color:var(--aqua-ink);
+    color:var(--ink-deep);
     margin:0;
   }
   .concept h2{
@@ -279,7 +280,7 @@
 
   /* ---------- SERVICES ---------- */
   .services{
-    background:var(--aqua-pale);
+    background:var(--mist);
     padding:76px 0;
   }
   .section-head{
@@ -320,9 +321,9 @@
     font-weight:700;
     font-size:.78rem;
     letter-spacing:.03em;
-    color:var(--aqua-ink);
-    background:var(--aqua-pale);
-    border:1px solid rgba(63,126,140,.25);
+    color:var(--taupe-deep);
+    background:var(--mist);
+    border:1px solid rgba(138,107,82,.25);
     padding:6px 14px;
     border-radius:999px;
   }
@@ -334,6 +335,13 @@
     font-size:.96rem;
     margin:0;
   }
+  .duration-line{
+    font-family:'Quicksand', sans-serif;
+    font-weight:600;
+    font-size:.82rem;
+    color:var(--taupe-deep);
+    margin:0;
+  }
   .service-tag{
     margin-top:auto;
     font-family:'Quicksand', sans-serif;
@@ -342,28 +350,57 @@
     color:var(--blush);
   }
 
-  .safety-strip{
+  .practical-info{
     margin-top:44px;
     background:var(--white);
     border-radius:var(--radius-md);
-    padding:22px 28px;
-    display:flex;
-    gap:18px;
-    align-items:center;
-    justify-content:center;
-    flex-wrap:wrap;
-    text-align:center;
+    padding:36px 40px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:32px;
   }
-  .safety-strip p{
+  .practical-col h4{
+    font-family:'Quicksand', sans-serif;
+    font-size:.78rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--taupe);
+    margin:0 0 14px;
+  }
+  .practical-col ul{
+    list-style:none;
+    padding:0;
     margin:0;
+    display:grid;
+    gap:10px;
+  }
+  .practical-col li{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    font-size:.95rem;
+    color:var(--ink);
+  }
+  .practical-col .dot{margin-top:7px;}
+  .practical-col + .practical-col{
+    border-left:1px solid rgba(62,55,51,0.1);
+    padding-left:32px;
+  }
+  .pricing-note{
+    margin:18px 0 0;
+    text-align:center;
     color:var(--ink-soft);
     font-size:.92rem;
   }
-  .safety-strip strong{color:var(--aqua-ink);}
+  .pricing-note strong{color:var(--ink-deep);}
+  @media (max-width:600px){
+    .practical-info{grid-template-columns:1fr; padding:28px 24px;}
+    .practical-col + .practical-col{border-left:none; padding-left:0; border-top:1px solid rgba(62,55,51,0.1); padding-top:24px;}
+  }
 
   /* ---------- BOOKING ---------- */
   .booking{
-    background:var(--aqua);
+    background:var(--beige);
     padding:80px 0 96px;
     position:relative;
   }
@@ -374,11 +411,11 @@
     align-items:flex-start;
   }
   .booking-intro h2{
-    color:var(--aqua-ink);
+    color:var(--ink-deep);
     font-size:clamp(1.7rem, 3.2vw, 2.3rem);
   }
   .booking-intro p{
-    color:var(--aqua-ink);
+    color:var(--ink-deep);
     opacity:.9;
     max-width:38ch;
   }
@@ -394,7 +431,7 @@
     align-items:center;
     gap:10px;
     text-decoration:none;
-    color:var(--aqua-ink);
+    color:var(--ink-deep);
     font-weight:600;
     font-size:.96rem;
   }
@@ -438,7 +475,7 @@
   .field select:focus,
   .field textarea:focus{
     outline:none;
-    border-color:var(--aqua-deep);
+    border-color:var(--taupe);
     background:var(--white);
   }
   .form-submit{
@@ -457,12 +494,12 @@
     font-size:.9rem;
     font-weight:600;
   }
-  #form-status.ok{color:var(--aqua-deep);}
+  #form-status.ok{color:var(--taupe);}
   #form-status.err{color:#B5504A;}
 
   /* ---------- FOOTER ---------- */
   footer{
-    background:var(--aqua-ink);
+    background:var(--ink-deep);
     color:var(--cream);
     padding:56px 0 32px;
   }
@@ -476,7 +513,7 @@
     font-size:.82rem;
     letter-spacing:.1em;
     text-transform:uppercase;
-    color:var(--aqua);
+    color:var(--beige);
     margin:0 0 14px;
   }
   footer .brand-line{
@@ -504,7 +541,7 @@
     align-items:center;
     gap:8px;
   }
-  footer a:hover{color:var(--aqua);}
+  footer a:hover{color:var(--beige);}
   .footer-bottom{
     margin-top:44px;
     padding-top:22px;
@@ -549,11 +586,11 @@
 
 <header class="nav">
   <div class="nav-inner">
-    <a class="brand" href="#top">
-      <img src="assets/logo.jpg" alt="Petit Nuage Aquatique">
-      <span>Petit Nuage Aquatique</span>
-    </a>
     <a class="nav-cta" href="#reserver">Réserver un bain</a>
+    <a class="brand" href="#top">
+      <span>Petit Nuage Aquatique</span>
+      <img src="assets/logo.jpg" alt="Petit Nuage Aquatique">
+    </a>
   </div>
 </header>
 
@@ -605,7 +642,7 @@
   </section>
 
   <div class="wave" style="background:var(--white);">
-    <svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,50 C240,10 480,90 720,60 C960,30 1200,80 1440,40 L1440,100 L0,100 Z" fill="#EAF4F5"></path></svg>
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,50 C240,10 480,90 720,60 C960,30 1200,80 1440,40 L1440,100 L0,100 Z" fill="#ECE5DB"></path></svg>
   </div>
 
   <!-- SERVICES -->
@@ -629,6 +666,7 @@
           <span class="age-badge">6 semaines — 6 mois</span>
           <h3>Le bain Shantala</h3>
           <p>Un massage Shantala précède l'immersion, puis bébé évolue avec une bouée collier certifiée CE, ou une bouée ventrale dès 3 mois et 5 kg, pour découvrir librement ses mouvements dans l'eau.</p>
+          <p class="duration-line">30 min de massage · 10 à 20 min d'hydrothérapie</p>
           <span class="service-tag">Massage traditionnel indien</span>
         </div>
 
@@ -636,26 +674,42 @@
           <span class="age-badge">7 — 12 mois</span>
           <h3>Le bain sensoriel Montessori</h3>
           <p>Avec une bouée ventrale, bébé explore l'eau en autonomie encadrée : un bain sensoriel inspiré de l'approche Montessori qui stimule ses sens et sa motricité naissante.</p>
+          <p class="duration-line">30 min de massage · 10 à 20 min d'hydrothérapie</p>
           <span class="service-tag">Éveil sensoriel &amp; motricité</span>
         </div>
       </div>
 
-      <div class="safety-strip">
-        <p><strong>Matériel certifié CE</strong> · adapté au poids et à l'âge de chaque bébé</p>
-        <p><strong>Tarifs sur demande</strong> · contactez-nous pour un devis personnalisé</p>
+      <div class="practical-info">
+        <div class="practical-col">
+          <h4>Ce qui est fourni</h4>
+          <ul>
+            <li><span class="dot"></span> Couche de bain</li>
+            <li><span class="dot"></span> Huile de massage</li>
+            <li><span class="dot"></span> Bouées certifiées CE, adaptées au poids et à l'âge de bébé</li>
+          </ul>
+        </div>
+        <div class="practical-col">
+          <h4>À prévoir avec vous</h4>
+          <ul>
+            <li><span class="dot"></span> Un lange (serviette) de rechange</li>
+            <li><span class="dot"></span> Le sac à langer habituel</li>
+            <li><span class="dot"></span> Un repas ou un biberon si l'horaire du bain le nécessite</li>
+          </ul>
+        </div>
       </div>
+      <p class="pricing-note"><strong>Tarifs sur demande</strong> · contactez-nous pour un devis personnalisé</p>
     </div>
   </section>
 
-  <div class="wave" style="background:var(--aqua-pale);">
-    <svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,30 C240,80 480,10 720,45 C960,80 1200,20 1440,55 L1440,100 L0,100 Z" fill="#8FBFCC"></path></svg>
+  <div class="wave" style="background:var(--mist);">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,30 C240,80 480,10 720,45 C960,80 1200,20 1440,55 L1440,100 L0,100 Z" fill="#CBB29C"></path></svg>
   </div>
 
   <!-- BOOKING -->
   <section class="booking" id="reserver">
     <div class="wrap">
       <div class="booking-intro">
-        <p class="eyebrow" style="color:var(--aqua-ink);">Réservation</p>
+        <p class="eyebrow" style="color:var(--ink-deep);">Réservation</p>
         <h2>Réservez le bain de bébé</h2>
         <p>Dites-nous à quelle étape en est votre bébé, on s'occupe du reste. Nous vous recontactons rapidement pour confirmer votre créneau.</p>
         <ul class="booking-contact-list">
@@ -719,8 +773,8 @@
     </div>
   </section>
 
-  <div class="wave" style="background:var(--aqua-ink);">
-    <svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,50 C240,10 480,90 720,55 C960,20 1200,80 1440,45 L1440,100 L0,100 Z" fill="#2B4A52"></path></svg>
+  <div class="wave" style="background:var(--ink-deep);">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,50 C240,10 480,90 720,55 C960,20 1200,80 1440,45 L1440,100 L0,100 Z" fill="#4A3F35"></path></svg>
   </div>
 
 </main>
