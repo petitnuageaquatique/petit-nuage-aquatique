@@ -811,7 +811,7 @@
         <div id="booking-confirmation" class="booking-confirmation" hidden>
           <img class="logo-img confirmation-logo" src="assets/logo.jpg" alt="Petit Nuage Aquatique">
           <h3 id="confirmation-title">Merci, votre demande est bien reçue !</h3>
-          <p id="confirmation-text">Nous revenons vers vous très vite pour confirmer votre créneau.</p>
+          <p id="confirmation-text">Nous revenons vers vous très vite pour confirmer votre créneau. Pour aller plus vite, vous pouvez aussi nous écrire directement :</p>
           <div class="confirmation-actions">
             <a class="btn-ghost" href="tel:+33652293758">📞 06 52 29 37 58</a>
             <a class="btn-ghost" href="https://wa.me/33652293758" target="_blank" rel="noopener">💬 WhatsApp</a>
@@ -889,9 +889,11 @@
       });
       const result = await res.json();
       if(result.success){
-        status.textContent = 'Merci ! 🩵 Votre demande de bain a bien été reçue, nous revenons vers vous très vite pour confirmer le créneau.';
-        status.className = 'ok';
-        form.reset();
+        form.hidden = true;
+        const confirmation = document.getElementById('booking-confirmation');
+        confirmation.hidden = false;
+        confirmation.classList.add('show');
+        confirmation.scrollIntoView({behavior:'smooth', block:'center'});
       } else {
         status.textContent = result.message ? ("Erreur : " + result.message) : "Une erreur est survenue, réessayez ou appelez-nous directement.";
         status.className = 'err';
