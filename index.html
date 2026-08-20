@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Petit Nuage Aquatique — Baby spa à Wattrelos</title>
+<meta name="description" content="Petit Nuage Aquatique, baby spa à Wattrelos et alentours. Bains enveloppants, massage Shantala et bains sensoriels Montessori pour bébés de 3 jours à 12 mois.">
+
+<meta property="og:title" content="Petit Nuage Aquatique — Baby spa à Wattrelos">
+<meta property="og:description" content="Des bains bien-être doux et sécurisés pour bébé, à chaque étape de sa première année.">
+<meta property="og:image" content="assets/logo.jpg">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="assets/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Karla:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --cream:#F8F3EC;
+    --white:#FFFFFF;
+    --aqua-pale:#EAF4F5;
+    --aqua:#8FBFCC;
+    --aqua-deep:#3F7E8C;
+    --aqua-ink:#2B4A52;
+    --blush:#E3AFA3;
+    --gold:#CE9E4E;
+    --ink:#3E3733;
+    --ink-soft:#736A62;
+    --radius-lg: 32px;
+    --radius-md: 20px;
+    --shadow-soft: 0 20px 50px -25px rgba(62,55,51,0.35);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  body{
+    margin:0;
+    font-family:'Karla', sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    margin:0 0 .4em;
+    line-height:1.15;
+    font-weight:500;
+  }
+
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+  button{font-family:inherit;}
+
+  .eyebrow{
+    font-family:'Quicksand', sans-serif;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-size:.72rem;
+    color:var(--aqua-deep);
+  }
+
+  :focus-visible{
+    outline:3px solid var(--aqua-deep);
+    outline-offset:3px;
+    border-radius:6px;
+  }
+
+  .wrap{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(248,243,236,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(62,55,51,0.06);
+  }
+  .nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 24px;
+    max-width:1120px;
+    margin:0 auto;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .brand img{
+    width:42px; height:42px;
+    border-radius:50%;
+    object-fit:cover;
+    border:2px solid var(--white);
+    box-shadow:0 4px 14px rgba(62,55,51,0.18);
+  }
+  .brand span{
+    font-family:'Fraunces', serif;
+    font-size:1.05rem;
+    font-weight:500;
+  }
+  .nav-cta{
+    background:var(--aqua-deep);
+    color:var(--white);
+    text-decoration:none;
+    padding:10px 20px;
+    border-radius:999px;
+    font-family:'Quicksand', sans-serif;
+    font-weight:700;
+    font-size:.88rem;
+    letter-spacing:.02em;
+    transition:transform .2s ease, background .2s ease;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--aqua-ink); transform:translateY(-1px);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    padding:64px 0 40px;
+  }
+  .hero-blob{
+    position:absolute;
+    border-radius:50%;
+    background:var(--white);
+    filter:blur(2px);
+    opacity:.7;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    gap:48px;
+    align-items:center;
+    position:relative;
+    z-index:2;
+  }
+  .hero h1{
+    font-size:clamp(2.1rem, 4.2vw, 3.2rem);
+    font-style:italic;
+    font-weight:500;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--aqua-deep);
+  }
+  .hero p.lead{
+    font-size:1.08rem;
+    color:var(--ink-soft);
+    max-width:46ch;
+    margin:0 0 28px;
+  }
+  .hero-ctas{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .btn-primary{
+    background:var(--aqua-deep);
+    color:var(--white);
+    text-decoration:none;
+    padding:14px 28px;
+    border-radius:999px;
+    font-family:'Quicksand', sans-serif;
+    font-weight:700;
+    font-size:.95rem;
+    box-shadow:var(--shadow-soft);
+    transition:transform .2s ease, background .2s ease;
+    border:none;
+    cursor:pointer;
+  }
+  .btn-primary:hover{background:var(--aqua-ink); transform:translateY(-2px);}
+  .btn-ghost{
+    background:transparent;
+    color:var(--ink);
+    text-decoration:none;
+    padding:14px 24px;
+    border-radius:999px;
+    border:1.5px solid rgba(62,55,51,0.22);
+    font-family:'Quicksand', sans-serif;
+    font-weight:700;
+    font-size:.95rem;
+    transition:border-color .2s ease, background .2s ease;
+  }
+  .btn-ghost:hover{border-color:var(--aqua-deep); background:rgba(143,191,204,.15);}
+
+  .hero-art{
+    position:relative;
+  }
+  .hero-art img{
+    width:100%;
+    border-radius:40% 60% 55% 45% / 55% 45% 55% 45%;
+    box-shadow:var(--shadow-soft);
+  }
+  .sparkle{
+    position:absolute;
+    color:var(--gold);
+    animation:twinkle 3.2s ease-in-out infinite;
+  }
+  @keyframes twinkle{
+    0%,100%{opacity:.35; transform:scale(.85);}
+    50%{opacity:1; transform:scale(1.1);}
+  }
+
+  /* ---------- WAVE DIVIDERS ---------- */
+  .wave{display:block; width:100%; line-height:0;}
+  .wave svg{width:100%; height:auto; display:block;}
+
+  /* ---------- CONCEPT ---------- */
+  .concept{
+    background:var(--white);
+    padding:20px 0 76px;
+  }
+  .concept .wrap{
+    display:grid;
+    grid-template-columns:.9fr 1.1fr;
+    gap:56px;
+    align-items:center;
+  }
+  .concept-visual{
+    background:var(--aqua-pale);
+    border-radius:var(--radius-lg);
+    padding:32px;
+    text-align:center;
+  }
+  .concept-visual .big-quote{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.5rem;
+    color:var(--aqua-ink);
+    margin:0;
+  }
+  .concept h2{
+    font-size:clamp(1.6rem, 3vw, 2.2rem);
+  }
+  .concept p{
+    color:var(--ink-soft);
+    max-width:52ch;
+  }
+  .concept-points{
+    list-style:none;
+    padding:0;
+    margin:22px 0 0;
+    display:grid;
+    gap:14px;
+  }
+  .concept-points li{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    font-size:.98rem;
+    color:var(--ink);
+  }
+  .dot{
+    flex:none;
+    width:9px; height:9px;
+    border-radius:50%;
+    background:var(--blush);
+    margin-top:8px;
+  }
+
+  /* ---------- SERVICES ---------- */
+  .services{
+    background:var(--aqua-pale);
+    padding:76px 0;
+  }
+  .section-head{
+    text-align:center;
+    max-width:640px;
+    margin:0 auto 48px;
+  }
+  .section-head h2{
+    font-size:clamp(1.7rem, 3.2vw, 2.3rem);
+  }
+  .section-head p{
+    color:var(--ink-soft);
+  }
+  .service-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:26px;
+  }
+  .service-card{
+    background:var(--white);
+    border-radius:var(--radius-lg);
+    padding:32px 26px;
+    box-shadow:0 16px 40px -28px rgba(43,74,82,0.4);
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .service-card.in-view{opacity:1; transform:translateY(0);}
+  .service-card:nth-child(2){transition-delay:.08s;}
+  .service-card:nth-child(3){transition-delay:.16s;}
+
+  .age-badge{
+    align-self:flex-start;
+    font-family:'Quicksand', sans-serif;
+    font-weight:700;
+    font-size:.78rem;
+    letter-spacing:.03em;
+    color:var(--aqua-ink);
+    background:var(--aqua-pale);
+    border:1px solid rgba(63,126,140,.25);
+    padding:6px 14px;
+    border-radius:999px;
+  }
+  .service-card h3{
+    font-size:1.25rem;
+  }
+  .service-card p{
+    color:var(--ink-soft);
+    font-size:.96rem;
+    margin:0;
+  }
+  .service-tag{
+    margin-top:auto;
+    font-family:'Quicksand', sans-serif;
+    font-size:.8rem;
+    font-weight:600;
+    color:var(--blush);
+  }
+
+  .safety-strip{
+    margin-top:44px;
+    background:var(--white);
+    border-radius:var(--radius-md);
+    padding:22px 28px;
+    display:flex;
+    gap:18px;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    text-align:center;
+  }
+  .safety-strip p{
+    margin:0;
+    color:var(--ink-soft);
+    font-size:.92rem;
+  }
+  .safety-strip strong{color:var(--aqua-ink);}
+
+  /* ---------- BOOKING ---------- */
+  .booking{
+    background:var(--aqua);
+    padding:80px 0 96px;
+    position:relative;
+  }
+  .booking .wrap{
+    display:grid;
+    grid-template-columns:.85fr 1.15fr;
+    gap:48px;
+    align-items:flex-start;
+  }
+  .booking-intro h2{
+    color:var(--aqua-ink);
+    font-size:clamp(1.7rem, 3.2vw, 2.3rem);
+  }
+  .booking-intro p{
+    color:var(--aqua-ink);
+    opacity:.9;
+    max-width:38ch;
+  }
+  .booking-contact-list{
+    list-style:none;
+    padding:0;
+    margin:26px 0 0;
+    display:grid;
+    gap:12px;
+  }
+  .booking-contact-list a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    color:var(--aqua-ink);
+    font-weight:600;
+    font-size:.96rem;
+  }
+
+  .form-card{
+    background:var(--white);
+    border-radius:var(--radius-lg);
+    padding:36px;
+    box-shadow:var(--shadow-soft);
+  }
+  .form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+  }
+  .field{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+  .field.full{grid-column:1 / -1;}
+  .field label{
+    font-family:'Quicksand', sans-serif;
+    font-weight:600;
+    font-size:.85rem;
+    color:var(--ink);
+  }
+  .field input,
+  .field select,
+  .field textarea{
+    font-family:'Karla', sans-serif;
+    font-size:.96rem;
+    padding:12px 14px;
+    border-radius:12px;
+    border:1.5px solid rgba(62,55,51,0.15);
+    background:var(--cream);
+    color:var(--ink);
+  }
+  .field textarea{resize:vertical; min-height:88px;}
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus{
+    outline:none;
+    border-color:var(--aqua-deep);
+    background:var(--white);
+  }
+  .form-submit{
+    margin-top:22px;
+    display:flex;
+    align-items:center;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .form-note{
+    font-size:.85rem;
+    color:var(--ink-soft);
+    margin:0;
+  }
+  #form-status{
+    font-size:.9rem;
+    font-weight:600;
+  }
+  #form-status.ok{color:var(--aqua-deep);}
+  #form-status.err{color:#B5504A;}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--aqua-ink);
+    color:var(--cream);
+    padding:56px 0 32px;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.2fr 1fr 1fr;
+    gap:36px;
+  }
+  footer h4{
+    font-family:'Quicksand', sans-serif;
+    font-size:.82rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--aqua);
+    margin:0 0 14px;
+  }
+  footer .brand-line{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:12px;
+  }
+  footer .brand-line img{
+    width:38px; height:38px;
+    border-radius:50%;
+    object-fit:cover;
+  }
+  footer .brand-line span{
+    font-family:'Fraunces', serif;
+    font-size:1.05rem;
+  }
+  footer p{color:rgba(248,243,236,0.75); font-size:.92rem; max-width:32ch;}
+  footer ul{list-style:none; padding:0; margin:0; display:grid; gap:10px;}
+  footer a{
+    color:rgba(248,243,236,0.9);
+    text-decoration:none;
+    font-size:.94rem;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+  }
+  footer a:hover{color:var(--aqua);}
+  .footer-bottom{
+    margin-top:44px;
+    padding-top:22px;
+    border-top:1px solid rgba(248,243,236,0.15);
+    text-align:center;
+    font-size:.82rem;
+    color:rgba(248,243,236,0.55);
+  }
+
+  /* ---------- WHATSAPP FLOAT ---------- */
+  .wa-float{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    z-index:60;
+    background:#25D366;
+    width:56px;
+    height:56px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 12px 28px -10px rgba(0,0,0,0.4);
+    text-decoration:none;
+  }
+  .wa-float svg{width:28px; height:28px;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:880px){
+    .hero .wrap{grid-template-columns:1fr; gap:36px;}
+    .hero-art{order:-1; max-width:340px; margin:0 auto;}
+    .concept .wrap{grid-template-columns:1fr;}
+    .service-grid{grid-template-columns:1fr;}
+    .booking .wrap{grid-template-columns:1fr;}
+    .form-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr; gap:28px;}
+    .nav-cta{padding:9px 16px; font-size:.8rem;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <img src="assets/logo.jpg" alt="Petit Nuage Aquatique">
+      <span>Petit Nuage Aquatique</span>
+    </a>
+    <a class="nav-cta" href="#reserver">Réserver un bain</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-blob" style="width:280px; height:280px; top:-60px; left:-90px;"></div>
+    <div class="hero-blob" style="width:180px; height:180px; bottom:-40px; right:8%;"></div>
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Baby spa · Wattrelos &amp; alentours</p>
+        <h1>Un cocon de <em>douceur</em>,<br>pensé pour bébé.</h1>
+        <p class="lead">Petit Nuage Aquatique accompagne les tout-petits, de 3 jours à 12 mois, dans des bains bien-être enveloppants et sensoriels, en toute sécurité.</p>
+        <div class="hero-ctas">
+          <a class="btn-primary" href="#reserver">Réserver un bain</a>
+          <a class="btn-ghost" href="#services">Découvrir les bains</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <svg class="sparkle" style="top:6%; left:4%; width:22px; height:22px;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.4 9.6L24 12l-9.6 2.4L12 24l-2.4-9.6L0 12l9.6-2.4z"/></svg>
+        <svg class="sparkle" style="bottom:10%; right:0; width:16px; height:16px; animation-delay:1s;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.4 9.6L24 12l-9.6 2.4L12 24l-2.4-9.6L0 12l9.6-2.4z"/></svg>
+        <img src="assets/logo.jpg" alt="Bébé apaisé dans un nuage de bulles, illustration Petit Nuage Aquatique">
+      </div>
+    </div>
+  </section>
+
+  <div class="wave" style="background:var(--cream);">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,40 C240,90 480,0 720,30 C960,60 1200,10 1440,50 L1440,100 L0,100 Z" fill="#FFFFFF"></path></svg>
+  </div>
+
+  <!-- CONCEPT -->
+  <section class="concept">
+    <div class="wrap">
+      <div class="concept-visual">
+        <p class="big-quote">« Retrouver, dans l'eau, la même douceur que dans les bras. »</p>
+      </div>
+      <div>
+        <p class="eyebrow">Le concept</p>
+        <h2>Ici, l'eau devient un cocon</h2>
+        <p>Chaque bain est pensé selon l'âge et le développement de bébé : enveloppement pour les tout premiers jours, éveil sensoriel dès quelques semaines, puis autonomie encadrée à l'approche de la marche. Le rythme de votre enfant guide chaque séance.</p>
+        <ul class="concept-points">
+          <li><span class="dot"></span> Un accompagnement individuel, en douceur, à chaque étape</li>
+          <li><span class="dot"></span> Du matériel certifié CE, adapté au poids et à l'âge de bébé</li>
+          <li><span class="dot"></span> Un temps rien qu'à vous deux, hors du quotidien</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="wave" style="background:var(--white);">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,50 C240,10 480,90 720,60 C960,30 1200,80 1440,40 L1440,100 L0,100 Z" fill="#EAF4F5"></path></svg>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Nos bains bien-être</p>
+        <h2>Un bain à chaque étape</h2>
+        <p>Trois univers, pensés pour suivre bébé de ses premiers jours à sa première année.</p>
+      </div>
+
+      <div class="service-grid">
+        <div class="service-card">
+          <span class="age-badge">3 jours — 5 semaines</span>
+          <h3>Le bain enveloppant</h3>
+          <p>Bébé est enveloppé puis immergé tout en douceur dans une eau à température corporelle, pour une transition apaisante et rassurante, sous le regard attentif de ses parents.</p>
+          <span class="service-tag">Technique de l'enveloppement</span>
+        </div>
+
+        <div class="service-card">
+          <span class="age-badge">6 semaines — 6 mois</span>
+          <h3>Le bain Shantala</h3>
+          <p>Un massage Shantala précède l'immersion, puis bébé évolue avec une bouée collier certifiée CE, ou une bouée ventrale dès 3 mois et 5 kg, pour découvrir librement ses mouvements dans l'eau.</p>
+          <span class="service-tag">Massage traditionnel indien</span>
+        </div>
+
+        <div class="service-card">
+          <span class="age-badge">7 — 12 mois</span>
+          <h3>Le bain sensoriel Montessori</h3>
+          <p>Avec une bouée ventrale, bébé explore l'eau en autonomie encadrée : un bain sensoriel inspiré de l'approche Montessori qui stimule ses sens et sa motricité naissante.</p>
+          <span class="service-tag">Éveil sensoriel &amp; motricité</span>
+        </div>
+      </div>
+
+      <div class="safety-strip">
+        <p><strong>Matériel certifié CE</strong> · adapté au poids et à l'âge de chaque bébé</p>
+        <p><strong>Tarifs sur demande</strong> · contactez-nous pour un devis personnalisé</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="wave" style="background:var(--aqua-pale);">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,30 C240,80 480,10 720,45 C960,80 1200,20 1440,55 L1440,100 L0,100 Z" fill="#8FBFCC"></path></svg>
+  </div>
+
+  <!-- BOOKING -->
+  <section class="booking" id="reserver">
+    <div class="wrap">
+      <div class="booking-intro">
+        <p class="eyebrow" style="color:var(--aqua-ink);">Réservation</p>
+        <h2>Réservez le bain de bébé</h2>
+        <p>Dites-nous à quelle étape en est votre bébé, on s'occupe du reste. Nous vous recontactons rapidement pour confirmer votre créneau.</p>
+        <ul class="booking-contact-list">
+          <li><a href="tel:+33652293758">📞 06 52 29 37 58</a></li>
+          <li><a href="mailto:petitnuageaquatique@gmail.com">✉️ petitnuageaquatique@gmail.com</a></li>
+          <li><a href="https://wa.me/33652293758" target="_blank" rel="noopener">💬 Écrire sur WhatsApp</a></li>
+        </ul>
+      </div>
+
+      <div class="form-card">
+        <form id="booking-form">
+          <!-- Clé Web3Forms à remplacer, voir instructions -->
+          <input type="hidden" name="access_key" value="VOTRE_CLE_WEB3FORMS">
+          <input type="hidden" name="subject" value="Nouvelle demande de réservation — Petit Nuage Aquatique">
+          <input type="checkbox" name="botcheck" style="display:none;">
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="parent">Prénom du parent</label>
+              <input type="text" id="parent" name="Prénom du parent" required>
+            </div>
+            <div class="field">
+              <label for="phone">Téléphone</label>
+              <input type="tel" id="phone" name="Téléphone" required>
+            </div>
+            <div class="field full">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="Email" required>
+            </div>
+            <div class="field full">
+              <label for="stage">Âge de bébé / type de bain</label>
+              <select id="stage" name="Type de bain" required>
+                <option value="">Choisir une option</option>
+                <option value="Bain enveloppant (3 jours - 5 semaines)">Bain enveloppant (3 jours – 5 semaines)</option>
+                <option value="Bain Shantala (6 semaines - 6 mois)">Bain Shantala (6 semaines – 6 mois)</option>
+                <option value="Bain sensoriel Montessori (7 - 12 mois)">Bain sensoriel Montessori (7 – 12 mois)</option>
+                <option value="Je ne sais pas encore">Je ne sais pas encore</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="date">Date souhaitée</label>
+              <input type="date" id="date" name="Date souhaitée">
+            </div>
+            <div class="field">
+              <label for="time">Créneau préféré</label>
+              <input type="text" id="time" name="Créneau préféré" placeholder="ex : en matinée">
+            </div>
+            <div class="field full">
+              <label for="message">Message (optionnel)</label>
+              <textarea id="message" name="Message"></textarea>
+            </div>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn-primary">Envoyer la demande</button>
+            <span id="form-status"></span>
+          </div>
+          <p class="form-note">En envoyant ce formulaire, votre demande est transmise directement par email à Petit Nuage Aquatique.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <div class="wave" style="background:var(--aqua-ink);">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,50 C240,10 480,90 720,55 C960,20 1200,80 1440,45 L1440,100 L0,100 Z" fill="#2B4A52"></path></svg>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand-line">
+          <img src="assets/logo.jpg" alt="Petit Nuage Aquatique">
+          <span>Petit Nuage Aquatique</span>
+        </div>
+        <p>Bains bien-être pour bébés, à Wattrelos et aux alentours. Un cocon de douceur, à chaque étape de sa première année.</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+33652293758">06 52 29 37 58</a></li>
+          <li><a href="mailto:petitnuageaquatique@gmail.com">petitnuageaquatique@gmail.com</a></li>
+          <li><a href="#reserver">Wattrelos &amp; alentours</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Suivez-nous</h4>
+        <ul>
+          <li><a href="https://www.facebook.com/profile.php?id=61576796842991" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://www.instagram.com/petit_nuage_aquatique" target="_blank" rel="noopener">Instagram — @petit_nuage_aquatique</a></li>
+          <li><a href="https://wa.me/33652293758" target="_blank" rel="noopener">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© <span id="year"></span> Petit Nuage Aquatique — Wattrelos</div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/33652293758" target="_blank" rel="noopener" aria-label="Écrire sur WhatsApp">
+  <svg viewBox="0 0 32 32" fill="white"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.7 4.61 1.9 6.48L4 29l7.72-1.87A11.94 11.94 0 0 0 16 27c6.627 0 12-5.373 12-12S22.628 3 16.001 3zm0 21.75c-1.98 0-3.83-.55-5.41-1.5l-.39-.23-4.58 1.11 1.13-4.46-.25-.4A9.7 9.7 0 0 1 6.25 15c0-5.38 4.38-9.75 9.75-9.75S25.75 9.62 25.75 15 21.38 24.75 16 24.75zm5.34-7.27c-.29-.15-1.72-.85-1.99-.95-.27-.1-.46-.15-.66.15-.2.29-.76.95-.93 1.14-.17.2-.34.22-.63.07-.29-.15-1.24-.46-2.36-1.46-.87-.78-1.46-1.73-1.63-2.03-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.51-.07-.15-.66-1.6-.91-2.19-.24-.58-.48-.5-.66-.5-.17-.01-.37-.01-.56-.01s-.51.07-.78.37c-.27.29-1.02 1-1.02 2.43 0 1.43 1.04 2.82 1.19 3.01.15.2 2.05 3.13 4.97 4.39.69.3 1.24.48 1.66.61.7.22 1.34.19 1.84.11.56-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.26-.2-.55-.34z"/></svg>
+</a>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Reveal service cards on scroll
+  const cards = document.querySelectorAll('.service-card');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); } });
+  }, {threshold:.2});
+  cards.forEach(c=>io.observe(c));
+
+  // Booking form submission via Web3Forms
+  const form = document.getElementById('booking-form');
+  const status = document.getElementById('form-status');
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    status.textContent = 'Envoi en cours...';
+    status.className = '';
+    const formData = new FormData(form);
+    try{
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method:'POST',
+        headers:{ 'Accept':'application/json' },
+        body: formData
+      });
+      const result = await res.json();
+      if(result.success){
+        status.textContent = 'Merci ! Votre demande a bien été envoyée.';
+        status.className = 'ok';
+        form.reset();
+      } else {
+        status.textContent = "Une erreur est survenue, réessayez ou appelez-nous directement.";
+        status.className = 'err';
+      }
+    } catch(err){
+      status.textContent = "Une erreur est survenue, réessayez ou appelez-nous directement.";
+      status.className = 'err';
+    }
+  });
+</script>
+
+</body>
+</html>
