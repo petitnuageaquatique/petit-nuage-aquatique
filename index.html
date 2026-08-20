@@ -760,26 +760,14 @@
         <form id="booking-form">
           <!-- Clé Web3Forms à remplacer, voir instructions -->
           <input type="hidden" name="access_key" value="fe4ffcc3-1aae-4c1e-98ab-0a6010c3f192">
-          <input type="hidden" name="subject" value="Nouvelle demande de réservation — Petit Nuage Aquatique">
+          <input type="hidden" name="subject" value="🩵 Nouvelle demande de bain — Petit Nuage Aquatique">
+          <input type="hidden" name="Note" value="Nouvelle demande reçue via le site, merci de recontacter la famille rapidement.">
           <input type="checkbox" name="botcheck" style="display:none;">
 
           <div class="form-grid">
-            <div class="field">
-              <label for="parent">Prénom du parent</label>
-              <input type="text" id="parent" name="Prénom du parent" required>
-            </div>
-            <div class="field">
-              <label for="phone">Téléphone</label>
-              <input type="tel" id="phone" name="Téléphone" required>
-            </div>
-            <div class="field full">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required>
-              <input type="hidden" name="replyto" id="replyto">
-            </div>
             <div class="field full">
               <label for="stage">Âge de bébé / type de bain</label>
-              <select id="stage" name="Type de bain" required>
+              <select id="stage" name="Type de bain souhaité" required>
                 <option value="">Choisir une option</option>
                 <option value="Bain enveloppant (3 jours - 5 semaines)">Bain enveloppant (3 jours – 5 semaines)</option>
                 <option value="Bain Shantala (6 semaines - 6 mois)">Bain Shantala (6 semaines – 6 mois)</option>
@@ -794,6 +782,19 @@
             <div class="field">
               <label for="time">Créneau préféré</label>
               <input type="text" id="time" name="Créneau préféré" placeholder="ex : en matinée">
+            </div>
+            <div class="field">
+              <label for="parent">Prénom du parent</label>
+              <input type="text" id="parent" name="Prénom du parent" required>
+            </div>
+            <div class="field">
+              <label for="phone">Téléphone</label>
+              <input type="tel" id="phone" name="Téléphone" required>
+            </div>
+            <div class="field full">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+              <input type="hidden" name="replyto" id="replyto">
             </div>
             <div class="field full">
               <label for="message">Message (optionnel)</label>
