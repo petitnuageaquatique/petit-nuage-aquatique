@@ -31,7 +31,7 @@
     {
       "@type": "Question",
       "name": "Combien de temps dure une séance ?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Comptez environ 45 minutes pour les bains Shantala et sensoriel Montessori (30 min de massage suivies de 10 à 20 min d'hydrothérapie). Contactez-nous pour la durée du bain enveloppant, adaptée à chaque nouveau-né." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Comptez environ 45 minutes pour les bains Shantala et sensoriel Montessori (10 à 20 min d'hydrothérapie suivies de 30 min de massage). Contactez-nous pour la durée du bain enveloppant, adaptée à chaque nouveau-né." }
     },
     {
       "@type": "Question",
@@ -56,7 +56,7 @@
     {
       "@type": "Question",
       "name": "Quels sont les tarifs ?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Ils varient selon le type de bain choisi. Contactez-nous pour obtenir un devis personnalisé." }
+      "acceptedAnswer": { "@type": "Answer", "text": "70 € le bain, quel que soit le type choisi (enveloppant, Shantala ou sensoriel Montessori)." }
     }
   ]
 }
@@ -373,6 +373,20 @@
   .service-card:nth-child(2){transition-delay:.08s;}
   .service-card:nth-child(3){transition-delay:.16s;}
 
+  .card-top-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+  }
+  .price-badge{
+    flex:none;
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:1.1rem;
+    color:var(--taupe-deep);
+  }
   .age-badge{
     align-self:flex-start;
     font-family:'Quicksand', sans-serif;
@@ -675,6 +689,79 @@
   @media (max-width:600px){
     #my-cal-inline{height:560px;}
   }
+
+  /* ---------- GIFT CARD ---------- */
+  .gift{
+    background:var(--mist);
+    padding:76px 0;
+  }
+  .gift-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:22px;
+    margin-bottom:40px;
+  }
+  .gift-card{
+    background:var(--white);
+    border-radius:var(--radius-lg);
+    padding:30px 26px;
+    text-align:center;
+    box-shadow:0 16px 40px -28px rgba(43,74,82,0.35);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+  }
+  .gift-card .price-badge{
+    font-size:1.4rem;
+  }
+  .gift-card h3{
+    font-size:1.1rem;
+    margin:0;
+  }
+  .gift-card p{
+    color:var(--ink-soft);
+    font-size:.92rem;
+    margin:0 0 10px;
+  }
+  .gift-btn{
+    margin-top:auto;
+    font-size:.88rem;
+    padding:10px 22px;
+  }
+  .gift-steps{
+    max-width:760px;
+    margin:0 auto;
+    display:grid;
+    gap:14px;
+  }
+  .gift-step{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    background:var(--white);
+    border-radius:var(--radius-md);
+    padding:14px 20px;
+    font-size:.94rem;
+    color:var(--ink);
+  }
+  .gift-step-num{
+    flex:none;
+    width:26px; height:26px;
+    border-radius:50%;
+    background:var(--taupe);
+    color:var(--white);
+    font-family:'Quicksand', sans-serif;
+    font-weight:700;
+    font-size:.85rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  @media (max-width:880px){
+    .gift-grid{grid-template-columns:1fr;}
+  }
+
   footer{
     background:var(--ink-deep);
     color:var(--cream);
@@ -773,6 +860,7 @@
 <header class="nav">
   <div class="nav-inner">
     <a class="nav-cta" href="#reserver">Réserver</a>
+    <a class="nav-link" href="#cadeau">Idée cadeau</a>
     <a class="nav-link" href="#faq">FAQ</a>
     <a class="brand" href="#top">
       <span>Petit Nuage Aquatique</span>
@@ -843,25 +931,34 @@
 
       <div class="service-grid">
         <div class="service-card">
-          <span class="age-badge">3 jours — 5 semaines</span>
+          <div class="card-top-row">
+            <span class="age-badge">3 jours — 5 semaines</span>
+            <span class="price-badge">70 €</span>
+          </div>
           <h3>Le bain enveloppant</h3>
-          <p>Bébé est enveloppé puis immergé tout en douceur dans une eau à température corporelle, pour une transition apaisante et rassurante, sous le regard attentif de ses parents.</p>
-          <span class="service-tag">Technique de l'enveloppement</span>
+          <p>Le bain consiste à baigner bébé enveloppé dans un lange, immergé tout en douceur dans une eau à température corporelle pour une transition apaisante et rassurante. La séance se termine par un moment de complicité : un massage des pieds, aussi appelé réflexologie pédiatrique, le tout accompagné du début à la fin.</p>
+          <span class="service-tag">Enveloppement &amp; réflexologie pédiatrique</span>
         </div>
 
         <div class="service-card">
-          <span class="age-badge">6 semaines — 6 mois</span>
+          <div class="card-top-row">
+            <span class="age-badge">6 semaines — 6 mois</span>
+            <span class="price-badge">70 €</span>
+          </div>
           <h3>Le bain Shantala</h3>
-          <p>Un massage Shantala précède l'immersion, puis bébé évolue avec une bouée collier certifiée CE, ou une bouée ventrale dès 3 mois et 5 kg, pour découvrir librement ses mouvements dans l'eau.</p>
-          <p class="duration-line">30 min de massage · 10 à 20 min d'hydrothérapie</p>
+          <p>Bébé profite d'abord d'un bain d'hydrothérapie avec une bouée collier certifiée CE, ou une bouée ventrale dès 3 mois et 5 kg, pour découvrir librement ses mouvements dans l'eau, suivi d'un massage selon la technique Shantala pour prolonger la détente.</p>
+          <p class="duration-line">10 à 20 min d'hydrothérapie · 30 min de massage</p>
           <span class="service-tag">Massage traditionnel indien</span>
         </div>
 
         <div class="service-card">
-          <span class="age-badge">7 — 12 mois</span>
+          <div class="card-top-row">
+            <span class="age-badge">7 — 12 mois</span>
+            <span class="price-badge">70 €</span>
+          </div>
           <h3>Le bain sensoriel Montessori</h3>
-          <p>Avec une bouée ventrale, bébé explore l'eau en autonomie encadrée : un bain sensoriel inspiré de l'approche Montessori qui stimule ses sens et sa motricité naissante.</p>
-          <p class="duration-line">30 min de massage · 10 à 20 min d'hydrothérapie</p>
+          <p>Avec une bouée ventrale, bébé explore d'abord l'eau en autonomie encadrée dans un bain sensoriel inspiré de l'approche Montessori, suivi d'un massage selon la même technique pour clore la séance en douceur.</p>
+          <p class="duration-line">10 à 20 min d'hydrothérapie · 30 min de massage</p>
           <span class="service-tag">Éveil sensoriel &amp; motricité</span>
         </div>
       </div>
@@ -884,7 +981,7 @@
           </ul>
         </div>
       </div>
-      <p class="pricing-note"><strong>Tarifs sur demande</strong> · contactez-nous pour un devis personnalisé</p>
+      <p class="pricing-note"><strong>70 € le bain</strong> · quel que soit le type choisi</p>
     </div>
   </section>
 
@@ -914,7 +1011,7 @@
 
         <details class="faq-item">
           <summary>Combien de temps dure une séance ?<span class="faq-icon"></span></summary>
-          <p>Comptez environ 45 minutes pour les bains Shantala et sensoriel Montessori (30 min de massage suivies de 10 à 20 min d'hydrothérapie). Contactez-nous pour la durée du bain enveloppant, adaptée à chaque nouveau-né.</p>
+          <p>Comptez environ 45 minutes pour les bains Shantala et sensoriel Montessori (10 à 20 min d'hydrothérapie suivies de 30 min de massage). Contactez-nous pour la durée du bain enveloppant, adaptée à chaque nouveau-né.</p>
         </details>
 
         <details class="faq-item">
@@ -939,8 +1036,50 @@
 
         <details class="faq-item">
           <summary>Quels sont les tarifs ?<span class="faq-icon"></span></summary>
-          <p>Ils varient selon le type de bain choisi. Contactez-nous pour obtenir un devis personnalisé.</p>
+          <p>70 € le bain, quel que soit le type choisi (enveloppant, Shantala ou sensoriel Montessori).</p>
         </details>
+      </div>
+    </div>
+  </section>
+
+  <div class="wave" style="background:var(--mist);">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,30 C240,80 480,10 720,45 C960,80 1200,20 1440,55 L1440,100 L0,100 Z" fill="#ECE5DB"></path></svg>
+  </div>
+
+  <!-- CARTE CADEAU -->
+  <section class="gift" id="cadeau">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Idée cadeau</p>
+        <h2>Offrez un bain à un proche</h2>
+        <p>Naissance, baby shower, anniversaire des premiers mois... Le bain bébé se glisse aussi joliment dans une liste de cadeaux. Choisissez le bain, on s'occupe du reste.</p>
+      </div>
+
+      <div class="gift-grid">
+        <div class="gift-card">
+          <span class="price-badge">70 €</span>
+          <h3>Le bain enveloppant</h3>
+          <p>Pour un nouveau-né de 3 jours à 5 semaines.</p>
+          <a class="btn-ghost gift-btn" href="https://wa.me/33652293758?text=Bonjour%20%21%20Je%20souhaite%20offrir%20une%20carte%20cadeau%20pour%20le%20Bain%20enveloppant%20%2870%E2%82%AC%29.%20Pouvez-vous%20m%27aider%20%3F" target="_blank" rel="noopener">Offrir ce bain</a>
+        </div>
+        <div class="gift-card">
+          <span class="price-badge">70 €</span>
+          <h3>Le bain Shantala</h3>
+          <p>Pour un bébé de 6 semaines à 6 mois.</p>
+          <a class="btn-ghost gift-btn" href="https://wa.me/33652293758?text=Bonjour%20%21%20Je%20souhaite%20offrir%20une%20carte%20cadeau%20pour%20le%20Bain%20Shantala%20%2870%E2%82%AC%29.%20Pouvez-vous%20m%27aider%20%3F" target="_blank" rel="noopener">Offrir ce bain</a>
+        </div>
+        <div class="gift-card">
+          <span class="price-badge">70 €</span>
+          <h3>Le bain sensoriel Montessori</h3>
+          <p>Pour un bébé de 7 à 12 mois.</p>
+          <a class="btn-ghost gift-btn" href="https://wa.me/33652293758?text=Bonjour%20%21%20Je%20souhaite%20offrir%20une%20carte%20cadeau%20pour%20le%20Bain%20sensoriel%20Montessori%20%2870%E2%82%AC%29.%20Pouvez-vous%20m%27aider%20%3F" target="_blank" rel="noopener">Offrir ce bain</a>
+        </div>
+      </div>
+
+      <div class="gift-steps">
+        <div class="gift-step"><span class="gift-step-num">1</span> Choisissez le bain qui correspond à l'âge de bébé</div>
+        <div class="gift-step"><span class="gift-step-num">2</span> Contactez-nous pour finaliser ensemble le règlement</div>
+        <div class="gift-step"><span class="gift-step-num">3</span> Vous recevez une jolie carte à offrir, avec un créneau à réserver quand bébé sera prêt</div>
       </div>
     </div>
   </section>
