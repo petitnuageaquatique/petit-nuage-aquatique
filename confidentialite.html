@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Politique de confidentialité — Petit Nuage Aquatique</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600&family=Karla:wght@400;500;600;700&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F8F3EC; --white:#FFFFFF; --taupe:#8A6B52; --taupe-deep:#6B5540;
+    --ink-deep:#4A3F35; --ink:#3E3733; --ink-soft:#736A62; --mist:#ECE5DB;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; font-family:'Karla', sans-serif; background:var(--cream); color:var(--ink); line-height:1.7;}
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+  header{padding:24px 0; border-bottom:1px solid rgba(62,55,51,0.08);}
+  header .wrap{display:flex; align-items:center; justify-content:space-between;}
+  .brand{font-family:'Fraunces', serif; font-size:1.05rem; color:var(--ink); text-decoration:none;}
+  .back{font-family:'Quicksand', sans-serif; font-weight:600; font-size:.88rem; color:var(--taupe-deep); text-decoration:none;}
+  .back:hover{text-decoration:underline;}
+  main{padding:56px 0 80px;}
+  h1{font-family:'Fraunces', serif; font-weight:500; font-size:2rem; margin:0 0 8px;}
+  .updated{color:var(--ink-soft); font-size:.9rem; margin:0 0 40px;}
+  h2{font-family:'Quicksand', sans-serif; font-weight:700; font-size:1.05rem; color:var(--taupe-deep); margin:36px 0 10px;}
+  h3{font-family:'Quicksand', sans-serif; font-weight:600; font-size:.95rem; margin:22px 0 8px;}
+  p{margin:0 0 14px;}
+  ul{margin:0 0 14px; padding-left:20px;}
+  li{margin-bottom:6px;}
+  a{color:var(--taupe-deep);}
+  .note{background:var(--mist); border-radius:10px; padding:14px 18px; font-size:.92rem; color:var(--ink);}
+  footer{padding:32px 0; text-align:center; font-size:.82rem; color:var(--ink-soft);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="index.html">Petit Nuage Aquatique</a>
+    <a class="back" href="index.html">← Retour au site</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <h1>Politique de confidentialité</h1>
+    <p class="updated">Dernière mise à jour : août 2026</p>
+
+    <h2>Données collectées</h2>
+    <p>Les seules données personnelles collectées sur ce site le sont dans le cadre d'une prise de rendez-vous, via l'outil de réservation Cal.com : prénom, coordonnées (téléphone, email) et créneau souhaité.</p>
+
+    <h2>Utilisation des données</h2>
+    <p>Ces informations sont utilisées uniquement pour organiser et confirmer votre séance avec Petit Nuage Aquatique. Elles ne sont ni revendues, ni utilisées à des fins commerciales autres que la gestion de votre réservation.</p>
+
+    <h2>Sous-traitants</h2>
+    <p>L'outil de réservation (Cal.com) agit comme sous-traitant technique pour l'envoi des confirmations et la gestion du calendrier. Pour en savoir plus sur le traitement de vos données par Cal.com, consultez leur politique de confidentialité sur <a href="https://cal.com/privacy" target="_blank" rel="noopener">cal.com/privacy</a>.</p>
+
+    <h2>Vos droits</h2>
+    <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour l'exercer, contactez-nous à <a href="mailto:petitnuageaquatique@gmail.com">petitnuageaquatique@gmail.com</a>.</p>
+
+    <p class="note">Pour les conditions de réservation, de paiement et d'annulation, consultez nos <a href="cgv.html">conditions générales de vente</a>.</p>
+
+    <p class="note">Ces informations sont fournies à titre informatif et ne remplacent pas un conseil juridique.</p>
+  </div>
+</main>
+
+<footer>
+  © <span id="year"></span> Petit Nuage Aquatique — Wattrelos
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>
