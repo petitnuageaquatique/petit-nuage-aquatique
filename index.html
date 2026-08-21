@@ -648,14 +648,32 @@
     padding:12px;
     min-height:560px;
   }
+  .cal-toolbar{
+    display:flex;
+    justify-content:flex-end;
+    padding:4px 4px 10px;
+  }
+  .cal-back-btn{
+    font-family:'Quicksand', sans-serif;
+    font-weight:700;
+    font-size:.82rem;
+    color:var(--taupe-deep);
+    background:var(--mist);
+    border:1px solid rgba(138,107,82,.3);
+    border-radius:999px;
+    padding:8px 16px;
+    cursor:pointer;
+    transition:background .2s ease;
+  }
+  .cal-back-btn:hover{background:var(--beige);}
   #my-cal-inline{
     width:100%;
-    height:560px;
+    height:640px;
     overflow:auto;
     border-radius:20px;
   }
   @media (max-width:600px){
-    #my-cal-inline{height:480px;}
+    #my-cal-inline{height:560px;}
   }
   footer{
     background:var(--ink-deep);
@@ -946,6 +964,9 @@
       </div>
 
       <div class="form-card cal-card">
+        <div class="cal-toolbar">
+          <button type="button" id="cal-back-btn" class="cal-back-btn">← Recommencer / revenir en arrière</button>
+        </div>
         <div id="my-cal-inline"></div>
       </div>
     </div>
@@ -1005,13 +1026,25 @@
   // Calendrier de réservation Cal.com
   (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
   Cal("init", { origin: "https://cal.com" });
-  Cal("inline", {
-    elementOrSelector: "#my-cal-inline",
-    calLink: "petit-nuage-aquatique",
-    layout: "month_view",
-    config: { "layout": "month_view" }
+
+  function loadCalWidget(){
+    const container = document.getElementById("my-cal-inline");
+    container.innerHTML = "";
+    Cal("inline", {
+      elementOrSelector: "#my-cal-inline",
+      calLink: "petit-nuage-aquatique",
+      layout: "month_view",
+      config: { "layout": "month_view" }
+    });
+    Cal("ui", { "hideEventTypeDetails": false, "layout": "month_view" });
+  }
+
+  loadCalWidget();
+
+  document.getElementById("cal-back-btn").addEventListener("click", function(){
+    loadCalWidget();
+    document.getElementById("my-cal-inline").scrollIntoView({behavior:"smooth", block:"start"});
   });
-  Cal("ui", { "hideEventTypeDetails": false, "layout": "month_view" });
 </script>
 
 </body>
