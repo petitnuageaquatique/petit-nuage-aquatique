@@ -525,7 +525,19 @@
     flex-wrap:wrap;
   }
 
-  /* ---------- FOOTER ---------- */
+  .cal-card{
+    padding:12px;
+    min-height:560px;
+  }
+  #my-cal-inline{
+    width:100%;
+    height:560px;
+    overflow:auto;
+    border-radius:20px;
+  }
+  @media (max-width:600px){
+    #my-cal-inline{height:480px;}
+  }
   footer{
     background:var(--ink-deep);
     color:var(--cream);
@@ -748,7 +760,7 @@
       <div class="booking-intro">
         <p class="eyebrow" style="color:var(--ink-deep);">Réservation</p>
         <h2>Réservez le bain de bébé</h2>
-        <p>Dites-nous à quelle étape en est votre bébé, on s'occupe du reste. Nous vous recontactons rapidement pour confirmer votre créneau.</p>
+        <p>Choisissez votre bain et votre créneau directement dans le calendrier ci-contre : la réservation est immédiate, plus besoin d'attendre notre confirmation.</p>
         <ul class="booking-contact-list">
           <li><a href="tel:+33652293758">📞 06 52 29 37 58</a></li>
           <li><a href="mailto:petitnuageaquatique@gmail.com">✉️ petitnuageaquatique@gmail.com</a></li>
@@ -756,68 +768,8 @@
         </ul>
       </div>
 
-      <div class="form-card">
-        <form id="booking-form">
-          <!-- Clé Web3Forms à remplacer, voir instructions -->
-          <input type="hidden" name="access_key" value="fe4ffcc3-1aae-4c1e-98ab-0a6010c3f192">
-          <input type="hidden" name="subject" value="🩵 Nouvelle demande de bain — Petit Nuage Aquatique">
-          <input type="hidden" name="Note" value="Nouvelle demande reçue via le site, merci de recontacter la famille rapidement.">
-          <input type="checkbox" name="botcheck" style="display:none;">
-
-          <div class="form-grid">
-            <div class="field full">
-              <label for="stage">Âge de bébé / type de bain</label>
-              <select id="stage" name="Type de bain souhaité" required>
-                <option value="">Choisir une option</option>
-                <option value="Bain enveloppant (3 jours - 5 semaines)">Bain enveloppant (3 jours – 5 semaines)</option>
-                <option value="Bain Shantala (6 semaines - 6 mois)">Bain Shantala (6 semaines – 6 mois)</option>
-                <option value="Bain sensoriel Montessori (7 - 12 mois)">Bain sensoriel Montessori (7 – 12 mois)</option>
-                <option value="Je ne sais pas encore">Je ne sais pas encore</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="date">Date souhaitée</label>
-              <input type="date" id="date" name="Date souhaitée">
-            </div>
-            <div class="field">
-              <label for="time">Créneau préféré</label>
-              <input type="text" id="time" name="Créneau préféré" placeholder="ex : en matinée">
-            </div>
-            <div class="field">
-              <label for="parent">Prénom du parent</label>
-              <input type="text" id="parent" name="Prénom du parent" required>
-            </div>
-            <div class="field">
-              <label for="phone">Téléphone</label>
-              <input type="tel" id="phone" name="Téléphone" required>
-            </div>
-            <div class="field full">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required>
-              <input type="hidden" name="replyto" id="replyto">
-            </div>
-            <div class="field full">
-              <label for="message">Message (optionnel)</label>
-              <textarea id="message" name="Message"></textarea>
-            </div>
-          </div>
-
-          <div class="form-submit">
-            <button type="submit" class="btn-primary">Envoyer la demande</button>
-            <span id="form-status"></span>
-          </div>
-          <p class="form-note">En envoyant ce formulaire, votre demande est transmise directement par email à Petit Nuage Aquatique.</p>
-        </form>
-
-        <div id="booking-confirmation" class="booking-confirmation" hidden>
-          <img class="logo-img confirmation-logo" src="assets/logo.jpg" alt="Petit Nuage Aquatique">
-          <h3 id="confirmation-title">Merci, votre demande est bien reçue !</h3>
-          <p id="confirmation-text">Nous revenons vers vous très vite pour confirmer votre créneau. Pour aller plus vite, vous pouvez aussi nous écrire directement :</p>
-          <div class="confirmation-actions">
-            <a class="btn-ghost" href="tel:+33652293758">📞 06 52 29 37 58</a>
-            <a class="btn-ghost" href="https://wa.me/33652293758" target="_blank" rel="noopener">💬 WhatsApp</a>
-          </div>
-        </div>
+      <div class="form-card cal-card">
+        <div id="my-cal-inline"></div>
       </div>
     </div>
   </section>
@@ -873,38 +825,16 @@
   }, {threshold:.2});
   cards.forEach(c=>io.observe(c));
 
-  // Booking form submission via Web3Forms
-  const form = document.getElementById('booking-form');
-  const status = document.getElementById('form-status');
-  form.addEventListener('submit', async function(e){
-    e.preventDefault();
-    document.getElementById('replyto').value = document.getElementById('email').value;
-    status.textContent = 'Envoi en cours...';
-    status.className = '';
-    const formData = new FormData(form);
-    try{
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method:'POST',
-        headers:{ 'Accept':'application/json' },
-        body: formData
-      });
-      const result = await res.json();
-      if(result.success){
-        form.hidden = true;
-        const confirmation = document.getElementById('booking-confirmation');
-        confirmation.hidden = false;
-        confirmation.classList.add('show');
-        confirmation.scrollIntoView({behavior:'smooth', block:'center'});
-      } else {
-        status.textContent = result.message ? ("Erreur : " + result.message) : "Une erreur est survenue, réessayez ou appelez-nous directement.";
-        status.className = 'err';
-        console.error('Web3Forms error:', result);
-      }
-    } catch(err){
-      status.textContent = "Une erreur est survenue, réessayez ou appelez-nous directement.";
-      status.className = 'err';
-    }
+  // Calendrier de réservation Cal.com
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", { origin: "https://cal.com" });
+  Cal("inline", {
+    elementOrSelector: "#my-cal-inline",
+    calLink: "petit-nuage-aquatique",
+    layout: "month_view",
+    config: { "layout": "month_view" }
   });
+  Cal("ui", { "hideEventTypeDetails": false, "layout": "month_view" });
 </script>
 
 </body>
